@@ -23,13 +23,6 @@
 
 // 3. Components
 @use 'components/eyebrow';
-// @use 'components/audioplayer';
-// @use 'components/author-card';
-// @use 'components/glass-card';
-// @use 'components/numbered-list';
-// @use 'components/esg-card';
-// @use 'components/filter-dropdown';
-// @use 'components/departments';
 
 // 4. Layout
 @use 'layout/header';
@@ -43,22 +36,3 @@
 @use 'blocks/why';
 @use 'blocks/news-council';
 @use 'blocks/cta-banner';
-
-// Disabled — uncomment when sections are built
-// @use 'layout/utilitybar';
-// @use 'blocks/index';
-// @use 'blocks/section';
-// @use 'blocks/article';
-// @use 'blocks/featured';
-// @use 'blocks/features';
-// @use 'blocks/logos';
-// @use 'blocks/split';
-// @use 'blocks/featured-article';
-// @use 'blocks/news';
-// @use 'blocks/csr';
-// @use 'blocks/quote';
-// @use 'blocks/products';
-// @use 'blocks/latest-news';
-// @use 'blocks/timeline';
-// @use 'blocks/contact';
-// @use 'blocks/facilities';
