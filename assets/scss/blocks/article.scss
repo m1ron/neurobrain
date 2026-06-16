@@ -1,0 +1,85 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// Article Page
+// ============================================
+.article {
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+    line-height: 160%;
+    @include media-breakpoint-up(md) {
+        margin-bottom: 80px;
+        font-size: 1.125rem;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-bottom: 120px;
+        font-size: 1.25rem;
+    }
+
+    .container {
+        @include media-breakpoint-up(md) {
+            max-width: 712px;
+        }
+    }
+
+    &-main-image {
+        width: calc(100vw - 32px);
+        max-width: 900px;
+        //aspect-ratio: 1144 / 612;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(48.52deg, #81acc1 4.51%, #ffd3d3 100%);
+        @include media-breakpoint-up(xl) {
+            max-width: 1144px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: inherit;
+            display: block;
+            object-fit: cover;
+            opacity: .7;
+            @include user-select;
+        }
+    }
+
+    &-image {
+        margin: 48px 0;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 680 / 392;
+
+        img {
+            width: 100%;
+            height: auto;
+            border: 1px solid rgba($color-heading, .29);
+            border-radius: inherit;
+            display: block;
+            object-fit: cover;
+            @include user-select;
+        }
+    }
+
+    section {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h4, .h4 {
+        margin-bottom: 1.5rem;
+    }
+}

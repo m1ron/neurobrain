@@ -1,0 +1,125 @@
+@use '../var' as *;
+
+// ============================================
+// BUTTON
+// ============================================
+.btn {
+    --bs-btn-border-width: 1.5px;
+    --bs-btn-padding-x: 1.25rem;
+    --bs-btn-padding-y: .625rem;
+    --bs-btn-border-radius: 2rem;
+    --bs-btn-font-family: #{$font-default};
+    --bs-btn-font-size: .8125rem;
+    --bs-btn-line-height: 1.5;
+    --bs-btn-font-weight: 600;
+    --bs-btn-box-shadow: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    transition: color .25s ease-in-out, border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;
+    box-shadow: none;
+
+    // Arrow modifier
+    &-arrow::after {
+        content: '→';
+        font-size: 1em;
+        letter-spacing: 0;
+        text-transform: none;
+        transition: transform .2s ease;
+    }
+
+    &-arrow:hover::after {
+        transform: translateX(3px);
+    }
+
+    // ------- Primary (teal filled) -------
+    &-primary {
+        --bs-btn-border-color: #{$color-primary};
+        --bs-btn-color: #ffffff;
+        --bs-btn-bg: #{$color-primary};
+
+        --bs-btn-hover-border-color: #{darken($color-primary, 8%)};
+        --bs-btn-hover-color: #ffffff;
+        --bs-btn-hover-bg: #{darken($color-primary, 8%)};
+
+        --bs-btn-active-border-color: #{darken($color-primary, 12%)};
+        --bs-btn-active-color: #ffffff;
+        --bs-btn-active-bg: #{darken($color-primary, 12%)};
+
+        --bs-btn-disabled-border-color: #{$color-primary};
+        --bs-btn-disabled-color: rgba(255,255,255,.5);
+        --bs-btn-disabled-bg: #{$color-primary};
+        --bs-btn-disabled-opacity: .55;
+    }
+
+    // ------- Outline Primary (teal border) -------
+    &-outline-primary {
+        --bs-btn-border-color: #{$color-primary};
+        --bs-btn-color: #{$color-primary};
+        --bs-btn-bg: transparent;
+
+        --bs-btn-hover-border-color: #{$color-primary};
+        --bs-btn-hover-color: #ffffff;
+        --bs-btn-hover-bg: #{$color-primary};
+
+        --bs-btn-active-border-color: #{darken($color-primary, 8%)};
+        --bs-btn-active-color: #ffffff;
+        --bs-btn-active-bg: #{darken($color-primary, 8%)};
+
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    // ------- Outline Dark (navy border) -------
+    &-outline-dark {
+        --bs-btn-border-color: #{$color-dark};
+        --bs-btn-color: #{$color-dark};
+        --bs-btn-bg: transparent;
+
+        --bs-btn-hover-border-color: #{$color-dark};
+        --bs-btn-hover-color: #ffffff;
+        --bs-btn-hover-bg: #{$color-dark};
+
+        --bs-btn-active-border-color: #{$color-dark};
+        --bs-btn-active-color: #ffffff;
+        --bs-btn-active-bg: #{$color-dark};
+
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    // ------- Outline Light (white border, for dark backgrounds) -------
+    &-outline-light {
+        --bs-btn-border-color: rgba(255,255,255,.6);
+        --bs-btn-color: #ffffff;
+        --bs-btn-bg: transparent;
+
+        --bs-btn-hover-border-color: #ffffff;
+        --bs-btn-hover-color: #{$color-dark};
+        --bs-btn-hover-bg: #ffffff;
+
+        --bs-btn-active-border-color: #ffffff;
+        --bs-btn-active-color: #{$color-dark};
+        --bs-btn-active-bg: #ffffff;
+
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    // ------- Dark filled -------
+    &-dark {
+        --bs-btn-border-color: #{$color-dark};
+        --bs-btn-color: #ffffff;
+        --bs-btn-bg: #{$color-dark};
+
+        --bs-btn-hover-border-color: #{lighten($color-dark, 8%)};
+        --bs-btn-hover-color: #ffffff;
+        --bs-btn-hover-bg: #{lighten($color-dark, 8%)};
+
+        --bs-btn-active-border-color: #{lighten($color-dark, 12%)};
+        --bs-btn-active-color: #ffffff;
+        --bs-btn-active-bg: #{lighten($color-dark, 12%)};
+    }
+}

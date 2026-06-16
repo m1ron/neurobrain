@@ -1,0 +1,80 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// WHY IT MATTERS (dark section)
+// ============================================
+.why {
+    background: $color-dark;
+    overflow: hidden;
+
+    &-inner {
+        display: flex;
+        flex-direction: column;
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            align-items: center;
+            min-height: 400px;
+        }
+    }
+
+    &-content {
+        flex: 0 0 auto;
+        width: 100%;
+        padding: 56px 0 40px;
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+            padding: 80px 4rem 80px 0;
+        }
+        @include media-breakpoint-up(xl) {
+            width: 44%;
+            padding-right: 5rem;
+        }
+    }
+
+    &-label {
+        display: block;
+        font-size: .6875rem;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: rgba($color-primary, .8);
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        color: #ffffff;
+        margin-bottom: 1.25rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, .7);
+        margin-bottom: 2rem;
+    }
+
+    &-image {
+        flex: 0 0 auto;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+            align-self: stretch;
+        }
+        @include media-breakpoint-up(xl) {
+            width: 56%;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include media-breakpoint-down(lg) {
+                max-height: 320px;
+            }
+        }
+    }
+}

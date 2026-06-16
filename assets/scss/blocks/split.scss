@@ -1,0 +1,65 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// Split
+// ============================================
+
+.split {
+    margin: 3rem 0;
+    @include media-breakpoint-up(xl) {
+        margin: 5rem 0;
+    }
+    @include media-breakpoint-up(xxl) {
+        padding: 0 3rem;
+    }
+
+    > .row {
+        @include media-breakpoint-down(md) {
+            gap: 1.5rem;
+        }
+    }
+
+    &-card {
+        height: 100%;
+        padding: 2rem;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        color: $color-primary;
+        background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='624' height='324' fill='none'%3E%3Cg filter='url(%23a)'%3E%3Cpath fill='%23e8f4f6' fill-opacity='.6' d='M533 22.5c29.379-14.787 53.321-38.905 67.999-68.5C615.679-16.405 639.62 7.713 669 22.5c-29.38 14.787-53.321 38.905-68.001 68.5-14.678-29.595-38.62-53.713-67.999-68.5'/%3E%3Cpath stroke='%23f2f2f2' d='M600.999-44.887c14.615 28.99 38.118 52.665 66.899 67.387-28.781 14.72-52.284 38.396-66.899 67.386-14.615-28.99-38.118-52.665-66.898-67.386 28.78-14.722 52.284-38.397 66.898-67.387Z'/%3E%3C/g%3E%3Cg filter='url(%23b)'%3E%3Cpath fill='%23e8f4f6' fill-opacity='.6' d='M-126 15.501C-61.41-17.203-8.772-70.546 23.499-136 55.772-70.546 108.408-17.203 173 15.501 108.408 48.203 55.772 101.546 23.499 167-8.771 101.546-61.411 48.203-126 15.501'/%3E%3Cpath stroke='%23f2f2f2' d='M23.499-134.876C55.71-70.034 107.906-17.139 171.897 15.501 107.906 48.139 55.71 101.034 23.499 165.875-8.71 101.033-60.909 48.139-124.898 15.501-60.908-17.139-8.71-70.034 23.499-134.876Z'/%3E%3C/g%3E%3Cg filter='url(%23c)'%3E%3Cpath fill='%23e8f4f6' fill-opacity='.6' d='M301 289.001c39.316-19.86 71.356-52.253 90.999-92.001 19.645 39.748 51.684 72.141 91.001 92.001-39.317 19.858-71.356 52.251-91.001 91.999-19.643-39.748-51.683-72.141-90.999-91.999'/%3E%3Cpath stroke='%23f2f2f2' d='M391.999 198.117c19.582 39.14 51.183 71.089 89.902 90.884-38.719 19.794-70.32 51.741-89.902 90.881-19.581-39.14-51.183-71.087-89.901-90.881 38.718-19.795 70.32-51.743 89.901-90.884Z'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='a' width='204' height='205' x='499' y='-80' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur_4064_637' stdDeviation='17'/%3E%3C/filter%3E%3Cfilter id='b' width='367' height='371' x='-160' y='-170' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur_4064_637' stdDeviation='17'/%3E%3C/filter%3E%3Cfilter id='c' width='250' height='252' x='267' y='163' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur_4064_637' stdDeviation='17'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E") no-repeat 50% 50% / cover;
+        @include media-breakpoint-up(xl) {
+            padding: 3.5rem;
+        }
+
+        .eyebrow {
+            color: inherit;
+        }
+
+        .h3 {
+            color: inherit;
+            font-weight: 150;
+        }
+
+        .btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        &--dark {
+            color: $color-almost-white;
+            background-color: $color-primary;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='624' height='324' fill='none'%3E%3Cg filter='url(%23a)'%3E%3Cpath fill='%23f2f2f2' fill-opacity='.1' d='M533 22.5c29.379-14.787 53.321-38.905 67.999-68.5C615.679-16.405 639.62 7.713 669 22.5c-29.38 14.787-53.321 38.905-68.001 68.5-14.678-29.595-38.62-53.713-67.999-68.5'/%3E%3Cpath stroke='%23f2f2f2' d='M600.999-44.887c14.615 28.99 38.118 52.665 66.899 67.387-28.781 14.72-52.284 38.396-66.899 67.386-14.615-28.99-38.118-52.665-66.898-67.386 28.78-14.722 52.284-38.397 66.898-67.387Z'/%3E%3C/g%3E%3Cg filter='url(%23b)'%3E%3Cpath fill='%23f2f2f2' fill-opacity='.1' d='M-126 15.501C-61.41-17.203-8.772-70.546 23.499-136 55.772-70.546 108.408-17.203 173 15.501 108.408 48.203 55.772 101.546 23.499 167-8.771 101.546-61.411 48.203-126 15.501'/%3E%3Cpath stroke='%23f2f2f2' d='M23.499-134.876C55.71-70.034 107.906-17.139 171.897 15.501 107.906 48.139 55.71 101.034 23.499 165.875-8.71 101.033-60.909 48.139-124.898 15.501-60.908-17.139-8.71-70.034 23.499-134.876Z'/%3E%3C/g%3E%3Cg filter='url(%23c)'%3E%3Cpath fill='%23f2f2f2' fill-opacity='.1' d='M301 289c39.316-19.86 71.356-52.253 90.999-92 19.645 39.747 51.684 72.14 91.001 92-39.317 19.859-71.356 52.252-91.001 92-19.643-39.748-51.683-72.141-90.999-92'/%3E%3Cpath stroke='%23f2f2f2' d='M391.999 198.117c19.582 39.14 51.183 71.088 89.902 90.884-38.719 19.794-70.32 51.741-89.902 90.881-19.581-39.14-51.183-71.088-89.901-90.881 38.718-19.796 70.32-51.744 89.901-90.884Z'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='a' width='204' height='205' x='499' y='-80' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur_4064_636' stdDeviation='17'/%3E%3C/filter%3E%3Cfilter id='b' width='367' height='371' x='-160' y='-170' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur_4064_636' stdDeviation='17'/%3E%3C/filter%3E%3Cfilter id='c' width='250' height='252' x='267' y='163' color-interpolation-filters='sRGB' filterUnits='userSpaceOnUse'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeBlend in='SourceGraphic' in2='BackgroundImageFix' result='shape'/%3E%3CfeGaussianBlur result='effect1_foregroundBlur_4064_636' stdDeviation='17'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
+
+            .eyebrow::before {
+                background-color: $color-almost-white;
+            }
+        }
+    }
+
+    &-subtitle {
+        margin-bottom: 2rem;
+        letter-spacing: .025em;
+    }
+}

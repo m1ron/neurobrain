@@ -1,0 +1,64 @@
+// ============================================
+// NeuroBrain — Main SCSS Entry Point
+// ============================================
+@use "../../node_modules/bootstrap/scss/bootstrap" with (
+  $grid-gutter-width: 32px,
+  $paragraph-margin-bottom: 1.5rem,
+  $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1420px),
+  $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px, xxl: 1280px)
+);
+
+// 1. Variables / Mixins
+@use 'var';
+@use 'mixins';
+@use 'fonts';
+
+// 2. Base / Reset
+@use 'base/root';
+@use 'base/typography';
+@use 'base/spacing';
+@use 'base/buttons';
+@use 'base/pagination';
+@use 'base/form';
+
+// 3. Components
+@use 'components/eyebrow';
+// @use 'components/audioplayer';
+// @use 'components/author-card';
+// @use 'components/glass-card';
+// @use 'components/numbered-list';
+// @use 'components/esg-card';
+// @use 'components/filter-dropdown';
+// @use 'components/departments';
+
+// 4. Layout
+@use 'layout/header';
+@use 'layout/page';
+@use 'layout/footer';
+
+// 5. Blocks
+@use 'blocks/hero';
+@use 'blocks/stats';
+@use 'blocks/pillars';
+@use 'blocks/why';
+@use 'blocks/news-council';
+@use 'blocks/cta-banner';
+
+// Disabled — uncomment when sections are built
+// @use 'layout/utilitybar';
+// @use 'blocks/index';
+// @use 'blocks/section';
+// @use 'blocks/article';
+// @use 'blocks/featured';
+// @use 'blocks/features';
+// @use 'blocks/logos';
+// @use 'blocks/split';
+// @use 'blocks/featured-article';
+// @use 'blocks/news';
+// @use 'blocks/csr';
+// @use 'blocks/quote';
+// @use 'blocks/products';
+// @use 'blocks/latest-news';
+// @use 'blocks/timeline';
+// @use 'blocks/contact';
+// @use 'blocks/facilities';

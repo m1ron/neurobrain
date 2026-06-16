@@ -1,0 +1,22 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// PAGE
+// ============================================
+.page {
+    position: relative;
+}
+
+.section-dark {
+    background: $color-dark;
+    color: rgba(255, 255, 255, .8);
+
+    h1, h2, h3, h4, .h1, .h2, .h3, .h4 {
+        color: #ffffff;
+    }
+}
+
+.section-light {
+    background: $color-almost-white;
+}

@@ -1,0 +1,35 @@
+@use 'var' as *;
+
+// ============================================
+// FONTS
+// ============================================
+
+// Aptos Narrow — Regular
+@font-face {
+    font-family: 'Aptos Narrow';
+    src: url('#{$fonts}/Aptos-Narrow.woff2') format('woff2'),
+         url('#{$fonts}/Aptos-Narrow.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+// Aptos Narrow — Bold
+@font-face {
+    font-family: 'Aptos Narrow';
+    src: url('#{$fonts}/Aptos-Narrow-Bold.woff2') format('woff2'),
+         url('#{$fonts}/Aptos-Narrow-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+// IBM Plex Sans — Greek fallback (unicode-range, loads only for Greek chars)
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbSB4ZhRNU.woff2) format('woff2');
+    unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}

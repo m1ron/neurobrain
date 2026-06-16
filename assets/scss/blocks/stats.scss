@@ -1,0 +1,69 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// STATS BAR
+// ============================================
+.stats {
+    background: $color-almost-white;
+    border-top: 1px solid $color-border;
+    border-bottom: 1px solid $color-border;
+    padding: 32px 0;
+    @include media-breakpoint-up(md) {
+        padding: 40px 0;
+    }
+
+    &-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 16px;
+        @include media-breakpoint-up(md) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+    }
+
+    &-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        @include media-breakpoint-up(md) {
+            padding: 0 24px;
+            border-right: 1px solid $color-border;
+
+            &:first-child { padding-left: 0; }
+            &:last-child  { border-right: none; }
+        }
+    }
+
+    &-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-primary;
+
+        svg { display: block; width: 32px; height: 32px; }
+    }
+
+    &-body { min-width: 0; }
+
+    &-number {
+        font-size: 1.375rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: $color-primary;
+        letter-spacing: -.01em;
+        margin: 0 0 4px;
+        @include media-breakpoint-up(xl) { font-size: 1.5rem; }
+    }
+
+    &-label {
+        font-size: .8125rem;
+        line-height: 1.45;
+        color: $color-primary-gray;
+        margin: 0;
+    }
+}

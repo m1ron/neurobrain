@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+assets/css/styles.css.map
+
+# Editor / tooling
+.idea/
+.claude/
+.vscode/
+.DS_Store
+_mockup/

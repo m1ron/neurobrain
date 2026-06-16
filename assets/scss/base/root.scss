@@ -1,0 +1,29 @@
+@use '../var' as *;
+
+/* ========== BOOTSTRAP VARIABLES ========== */
+:root {
+    --bs-dark: #{$color-dark};
+    --bs-dark-rgb: #{$color-dark-rgb};
+
+    --bs-light: #{$color-neutral-light};
+    --bs-light-rgb: 244, 245, 247;
+
+    --bs-primary: #{$color-primary};
+    --bs-primary-rgb: #{$color-primary-rgb};
+
+    --bs-font-sans-serif: #{$font-default};
+    --bs-body-font-weight: 400;
+
+    --bs-body-bg: #ffffff;
+    --bs-body-color: #{$color-primary-gray};
+    --bs-body-color-rgb: 99, 115, 129;
+
+    --bs-heading-color: #{$color-heading};
+
+    --bs-focus-ring-color: rgba(#{$color-primary-rgb}, .25);
+
+    --bs-link-color: #{$color-primary};
+    --bs-link-color-rgb: #{$color-primary-rgb};
+    --bs-link-hover-color: #{$color-primary};
+    --bs-link-hover-color-rgb: #{$color-primary-rgb};
+}

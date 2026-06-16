@@ -1,0 +1,154 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// FEATURED ARTICLE
+// ============================================
+.featured-article {
+    position: relative;
+    border-radius: .5rem;
+    overflow: hidden;
+    margin-bottom: 0;
+    @include media-breakpoint-up(md) {
+        min-height: 400px;
+    }
+    @include media-breakpoint-up(xl) {
+        min-height: 584px;
+    }
+
+    &-image {
+        min-height: inherit;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        position: relative;
+        background: $gradient-image;
+        border-radius: inherit;
+
+        img {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            border-radius: inherit;
+            display: block;
+            object-fit: cover;
+            flex: 1;
+            @include user-select;
+        }
+
+        &::after {
+            @include pseudo;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 160px;
+            background: linear-gradient(to bottom, rgba($color-neutral-dark, .64) 0%, transparent 100%);
+            border-radius: inherit;
+            pointer-events: none;
+            opacity: .25;
+        }
+    }
+
+    &-card {
+        position: relative;
+        padding: 1.5rem;
+        z-index: 2;
+        @include media-breakpoint-up(md) {
+            width: 323px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+        @include media-breakpoint-up(xl) {
+            width: 371px;
+        }
+
+        &-inner {
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            @include media-breakpoint-up(md) {
+                padding: 1.5rem;
+                border-radius: 1rem;
+                border-bottom-right-radius: 5rem;
+                background: $color-almost-white;
+                box-shadow: inset 0 1px 0 0 rgba($color-neutral-dark, .04), inset 0 -1px 0 0 rgba($color-neutral-dark, .08);
+                backdrop-filter: blur(20px);
+            }
+        }
+    }
+
+    &-text {
+        font-size: 14px;
+        color: $color-primary-gray;
+        @include media-breakpoint-up(xl) {
+            font-size: 16px;
+            letter-spacing: .025em;
+        }
+
+        .eyebrow {
+            margin-bottom: 1rem;
+            color: $color-primary-gray;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-title {
+        margin-bottom: .5rem;
+        font-size: 1.5rem;
+        line-height: calc(32 / 28);
+        font-weight: 250;
+        letter-spacing: -.025em;
+        color: var(--bs-dark);
+        @include media-breakpoint-up(xl) {
+            font-size: 1.75rem;
+            letter-spacing: -.035em;
+        }
+    }
+
+    &-more {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        align-self: flex-start;
+        font-size: .875rem;
+        font-weight: 500;
+        line-height: calc(20 / 14);
+        letter-spacing: 0;
+        color: $color-primary;
+        text-decoration: none;
+        transition: color $easing;
+        outline: none;
+        @include media-breakpoint-down(md) {
+            margin-top: 1rem;
+            align-self: flex-start;
+        }
+
+        &::after {
+            @include pseudo;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: $color-primary url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23f2f2f2' stroke-linecap='round' stroke-linejoin='round' d='M3.334 8h8.667M8 3.333 12.667 8l-4.666 4.667'/%3E%3C/svg%3E") no-repeat center / 16px 16px;
+            transition: background-color $easing;
+            box-shadow: inset 0 1px 0 0 rgba($color-neutral-dark, .04), inset 0 -1px 0 0 rgba($color-neutral-dark, .08);
+        }
+
+        &:hover, &:focus {
+            color: $color-neutral-dark-88;
+
+            &::after {
+                background-color: $color-neutral-dark-88;
+            }
+        }
+    }
+}

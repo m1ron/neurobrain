@@ -1,0 +1,32 @@
+{
+  "name": "neurobrain",
+  "version": "1.0.0",
+  "description": "NeuroBrain — Ινστιτούτο Νευροαγγειακής Καινοτομίας",
+  "scripts": {
+    "scss": "sass assets/scss/styles.scss assets/css/styles.css --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function",
+    "prefix": "postcss assets/css/styles.css --use autoprefixer -o assets/css/styles.css --no-map",
+    "css": "npm run scss && npm run prefix",
+    "serve": "browser-sync start --server --files 'assets/css/*.css, assets/js/*.js, *.html' --no-notify",
+    "dev": "npm run css && concurrently \"sass --watch assets/scss/styles.scss assets/css/styles.css --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function\" \"npm run serve\"",
+    "build": "sass assets/scss/styles.scss assets/css/styles.css --style=compressed --no-source-map --silence-deprecation=import --silence-deprecation=global-builtin --silence-deprecation=color-functions --silence-deprecation=if-function && npm run prefix"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "bootstrap": "^5.3.3",
+    "browser-sync": "^3.0.2",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.38",
+    "postcss-cli": "^11.0.0",
+    "sass": "^1.77.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  }
+}

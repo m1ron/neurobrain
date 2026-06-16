@@ -1,0 +1,201 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// FACILITIES — Image cards (Company page)
+// ============================================
+.facilities {
+    padding-bottom: 3rem;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+    @include media-breakpoint-up(md) {
+        padding-bottom: 5rem;
+        margin-top: 3.5rem;
+    }
+
+    &::after {
+        @include pseudo;
+        position: absolute;
+        top: 0;
+        right: -16px;
+        bottom: 0;
+        left: -16px;
+        z-index: -1;
+        background: linear-gradient(180deg, rgba($color-almost-white, 0) 0%, white 50%);
+        @include media-breakpoint-up(sm) {
+            width: 100vw;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50vw);
+        }
+    }
+
+    > .row {
+        --bs-gutter-x: 1rem;
+        @include media-breakpoint-down(md) {
+            --bs-gutter-y: 1.5rem;
+        }
+    }
+
+    &-card {
+        height: 100%;
+        min-height: 420px;
+        padding: 1rem;
+        border-radius: 1rem;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: $color-almost-white;
+        @include media-breakpoint-up(lg) {
+            padding: 1.5rem;
+        }
+        @include media-breakpoint-up(xl) {
+            min-height: 512px;
+        }
+
+        // Background image layer
+        &-bg {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            z-index: 0;
+            border-radius: inherit;
+            background: $color-primary;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: inherit;
+                opacity: .8;
+                display: block;
+                @include user-select;
+            }
+        }
+
+        // Frosted overlay
+        &::before {
+            @include pseudo;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: rgba(white, .1);
+            border-radius: inherit;
+        }
+
+        // Tag / badge
+        &-tag {
+            position: relative;
+            z-index: 2;
+            align-self: flex-start;
+            padding: 8px 15px;
+            border: 1px solid rgba($color-almost-white, .5);
+            border-radius: 2rem;
+            margin-bottom: 1rem;
+            font-size: 12px;
+            font-weight: 550;
+            line-height: calc(16 / 14);
+            letter-spacing: 0;
+            text-transform: uppercase;
+            color: $color-primary-gray;
+            background: rgba($color-almost-white, .5);
+            cursor: default;
+            @include media-breakpoint-up(md) {
+                font-size: 12px;
+            }
+            @include media-breakpoint-up(xl) {
+                font-size: 14px;
+            }
+
+            &--solid {
+                color: $color-almost-white;
+                background: $color-primary;
+                border-color: rgba($color-almost-white, .5);
+            }
+        }
+
+        // Bottom content area
+        &-body {
+            padding: 1rem;
+            margin: 0 -1rem -1rem;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            gap: 1.5rem;
+            @include media-breakpoint-down(xl) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            @include media-breakpoint-up(lg) {
+                padding: 1.5rem;
+                margin: 0 -1.5rem -1.5rem;
+                gap: 2rem;
+            }
+
+            &::after {
+                @include pseudo;
+                border-bottom-left-radius: inherit;
+                border-bottom-right-radius: inherit;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                backdrop-filter: blur(18px);
+                mask-image: linear-gradient(to top, white 0%, white 70%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to top, white 0%, white 70%, transparent 100%);
+            }
+        }
+
+        &-content {
+            min-width: 0;
+            padding-left: 1rem;
+            flex: 1;
+            font-size: 14px;
+            line-height: calc(20 / 14);
+            letter-spacing: .0075em;
+            color: white;
+            box-shadow: inset 1px 0 0 0 $color-almost-white;
+            @include media-breakpoint-up(lg) {
+                padding-left: 1.5rem;
+            }
+
+            h3 {
+                margin: 0 0 1rem;
+                font-size: 1.75rem;
+                font-weight: 350;
+                line-height: 1.15;
+                letter-spacing: .005em;
+                color: $color-almost-white;
+                @include media-breakpoint-up(xl) {
+                    font-size: 2.625rem;
+                    line-height: 42px;
+                }
+            }
+
+            p {
+                margin: 0;
+
+                & + p {
+                    margin-top: 1.25rem;
+                }
+            }
+        }
+
+        .btn-text {
+            --bs-btn-border-width: 0;
+            flex-shrink: 0;
+            color: $color-almost-white;
+            white-space: nowrap;
+
+            &.btn-arrow::after {
+                background: $color-primary url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23f2f2f2' stroke-linecap='round' stroke-linejoin='round' d='M3.333 8H12M8 3.333 12.666 8 8 12.667'/%3E%3C/svg%3E") no-repeat center / 1rem 1rem;
+            }
+        }
+    }
+}

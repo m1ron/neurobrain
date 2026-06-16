@@ -1,0 +1,133 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// TIMELINE (Company — Our History)
+// ============================================
+.timeline {
+    padding: 0;
+    margin:36px 0 0;
+    list-style: none;
+    position: relative;
+    @include media-breakpoint-up(xxl) {
+        margin-top: 48px;
+        margin-left: -21px;
+    }
+
+    // Vertical track (light background)
+    &-track {
+        display: block;
+        width: 12px;
+        position: absolute;
+        top: -8px;
+        bottom: -8px;
+        left: -2px;
+        z-index: 0;
+        background: white;
+        border-radius: 8px;
+        pointer-events: none;
+    }
+
+    // Teal scroll-driven fill
+    &-fill {
+        display: block;
+        width: 12px;
+        height: 0;
+        position: absolute;
+        top: -8px;
+        left: -2px;
+        z-index: 1;
+        background: $color-primary;
+        border-radius: 8px;
+        pointer-events: none;
+        transition: height .1s ease;
+    }
+
+    // Single timeline entry
+    &-item {
+        padding-bottom: 80px;
+        position: relative;
+        z-index: 10;
+        @include media-breakpoint-down(md) {
+            padding-bottom: 2.5rem;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        > section {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+
+    // Year label (eyebrow style)
+    &-year {
+        width: 84px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 4px;
+        font: 400 10px/12px $font-default;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: $color-primary-gray;
+        @include media-breakpoint-down(md) {
+            width: 40px;
+            font-size: 9px;
+            gap: .5rem;
+        }
+
+        &::before {
+            @include pseudo;
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: $color-almost-white;
+        }
+    }
+
+    // Vertical bar spacer (keeps content aligned past the track)
+    &-bar {
+        width: 12px;
+        flex-shrink: 0;
+        @include media-breakpoint-down(md) {
+            width: 4px;
+        }
+    }
+
+    // Entry content
+    &-content {
+        flex: 1;
+        min-width: 0;
+
+        h3 {
+            margin: 0 0 .5rem;
+            font-size: 1.25rem;
+            font-weight: 250;
+            line-height: 24px;
+            letter-spacing: 0;
+            color: $color-primary;
+            @include media-breakpoint-up(xl) {
+                font-size: 1.5rem;
+            }
+        }
+
+        p {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: .25px;
+            color: $color-primary-gray;
+
+            & + p {
+                margin-top: 24px;
+            }
+        }
+    }
+}

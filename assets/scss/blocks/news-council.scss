@@ -1,0 +1,165 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// LATEST NEWS + SCIENTIFIC COUNCIL
+// ============================================
+.news-council {
+    padding: 64px 0;
+    @include media-breakpoint-up(xl) {
+        padding: 88px 0;
+    }
+}
+
+// ------- News -------
+.nb-news {
+    &-title {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: $color-dark;
+        margin-bottom: 1.5rem;
+        @include media-breakpoint-up(md) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-image {
+        display: block;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        aspect-ratio: 16/10;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform $easing-l;
+        }
+
+        &:hover img {
+            transform: scale(1.03);
+        }
+    }
+
+    &-date {
+        display: block;
+        font-size: .75rem;
+        font-weight: 500;
+        letter-spacing: .04em;
+        color: $color-primary-gray;
+        margin-bottom: .5rem;
+    }
+
+    &-headline {
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: $color-dark;
+        margin-bottom: .75rem;
+        flex: 1;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color $easing-s;
+
+            &:hover { color: $color-primary; }
+        }
+    }
+}
+
+// ------- Scientific Council -------
+.council {
+    @include media-breakpoint-down(lg) {
+        margin-top: 48px;
+    }
+
+    &-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &-title {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: $color-dark;
+        margin: 0;
+        @include media-breakpoint-up(md) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-slide {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &-member {
+        flex-shrink: 0;
+
+        &-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid $color-border;
+            margin-bottom: .75rem;
+            @include media-breakpoint-up(xl) {
+                width: 140px;
+                height: 140px;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &-name {
+            font-size: .9375rem;
+            font-weight: 600;
+            color: $color-dark;
+            margin-bottom: 2px;
+        }
+
+        &-role {
+            font-size: .8125rem;
+            color: $color-primary-gray;
+        }
+    }
+
+    &-dots {
+        display: flex;
+        gap: 6px;
+        margin-top: 1.5rem;
+
+        button {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            padding: 0;
+            background: $color-border;
+            cursor: pointer;
+            transition: background $easing-s, transform $easing-s;
+
+            &.active {
+                background: $color-primary;
+                transform: scale(1.25);
+            }
+        }
+    }
+}

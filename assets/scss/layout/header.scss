@@ -1,0 +1,248 @@
+@use '../var' as *;
+@use '../mixins' as *;
+
+// ============================================
+// NAVBAR / HEADER
+// ============================================
+
+.header {
+    padding: .5rem .75rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ffffff;
+    box-shadow: 0 1px 0 0 $color-border;
+    @include media-breakpoint-up(md) {
+        padding: .5rem 1rem;
+    }
+    @include media-breakpoint-up(lg) {
+        padding: .5rem 1.5rem;
+    }
+}
+
+.navbar {
+    --bs-navbar-padding-x: 0;
+    --bs-navbar-padding-y: 0;
+    --bs-navbar-brand-padding-y: .25rem;
+    --bs-navbar-brand-margin-end: 0;
+    --bs-navbar-color: #{$color-primary-gray};
+    --bs-navbar-hover-color: #{$color-dark};
+    --bs-navbar-active-color: #{$color-primary};
+    --bs-navbar-toggler-border-color: transparent;
+    --bs-navbar-toggler-border-radius: 0;
+    height: 56px;
+    @include media-breakpoint-up(xl) {
+        height: 64px;
+    }
+
+    &-brand {
+        padding: 0;
+        margin: 0 1.5rem 0 0;
+        display: flex;
+        align-items: center;
+        gap: .625rem;
+        text-decoration: none;
+
+        &-name {
+            font-size: .6875rem;
+            font-weight: 600;
+            line-height: 1.3;
+            letter-spacing: .02em;
+            color: $color-dark;
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+        }
+    }
+
+    &-nav {
+        --bs-nav-link-padding-x: .875rem;
+        --bs-nav-link-padding-y: .5rem;
+        --bs-navbar-nav-link-padding-x: .875rem;
+        --bs-nav-link-font-size: .75rem;
+        --bs-nav-link-font-weight: 500;
+        --bs-navbar-color: #{$color-primary-gray};
+        --bs-navbar-hover-color: #{$color-dark};
+        --bs-navbar-active-color: #{$color-primary};
+        --bs-navbar-disabled-color: #{$color-neutral-dark-48};
+        letter-spacing: .06em;
+        text-transform: uppercase;
+
+        @include media-breakpoint-down(lg) {
+            --bs-nav-link-font-size: 1.125rem;
+            --bs-nav-link-font-weight: 500;
+            text-align: center;
+            margin: 20px 0 8px;
+        }
+
+        .nav-item {
+            padding: 0 1px;
+        }
+
+        .nav-link {
+            border-radius: 2rem;
+            transition: color .2s ease, background-color .2s ease;
+
+            @include media-breakpoint-up(lg) {
+                &:hover, &:focus {
+                    color: $color-dark;
+                    background: $color-neutral-dark-4;
+                }
+                &.active {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+
+    &-collapse {
+        @include media-breakpoint-down(lg) {
+            padding: 0 .5rem 1.25rem;
+            border-radius: 0 0 20px 20px;
+            position: absolute;
+            top: 28px;
+            right: 0;
+            left: 0;
+            z-index: -1;
+            background: #ffffff;
+            box-shadow: 0 12px 32px rgba($color-dark, .12);
+            max-height: calc(100vh - 56px);
+            max-height: calc(100dvh - 56px);
+            overflow-y: auto;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar { display: none; }
+        }
+
+        &.collapsing ~ .navbar-overlay,
+        &.show ~ .navbar-overlay {
+            height: 100vh;
+            height: 100dvh;
+        }
+
+        &.collapse:not(.show) ~ .navbar-overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        &:not(.collapsing) ~ .navbar-overlay {
+            opacity: .2;
+        }
+    }
+
+    &-overlay {
+        display: none;
+        @include media-breakpoint-down(lg) {
+            display: block;
+            position: absolute;
+            top: -1rem;
+            right: -1rem;
+            left: -1rem;
+            z-index: -5;
+            background: $color-dark;
+            opacity: 0;
+            transition: opacity .4s ease;
+        }
+        @include media-breakpoint-down(md) {
+            top: -.75rem;
+            right: -.75rem;
+            left: -.75rem;
+        }
+    }
+
+    // Language toggle
+    &-lang {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        margin-right: .75rem;
+        font-size: .75rem;
+        font-weight: 500;
+        letter-spacing: .06em;
+
+        @include media-breakpoint-down(lg) {
+            justify-content: center;
+            margin: 8px auto 4px;
+        }
+
+        a {
+            padding: .25rem .375rem;
+            border-radius: 4px;
+            color: $color-primary-gray;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color .2s ease;
+
+            &.active {
+                color: $color-primary;
+                font-weight: 600;
+            }
+
+            &:hover {
+                color: $color-dark;
+            }
+        }
+
+        span {
+            color: $color-border;
+        }
+    }
+
+    &-toggler {
+        box-shadow: none !important;
+        outline: none;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        position: relative;
+        border: 0;
+
+        &-icon {
+            display: block;
+            width: 20px;
+            height: 14px;
+            position: relative;
+            margin: 0 auto;
+            background: none;
+
+            &::before, &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                border-radius: 1px;
+                background: $color-primary-gray;
+                transition: top .2s ease .2s, bottom .2s ease .2s, transform .2s ease 0s, opacity .15s ease .1s;
+            }
+
+            &::before { top: 0; }
+            &::after  { bottom: 0; }
+
+            background: linear-gradient(
+                transparent calc(50% - 1px),
+                $color-primary-gray calc(50% - 1px),
+                $color-primary-gray calc(50% + 1px),
+                transparent calc(50% + 1px)
+            );
+            transition: background .1s ease .1s;
+        }
+
+        &:not(.collapsed) &-icon {
+            background: transparent;
+            transition: background .1s ease 0s;
+
+            &::before, &::after {
+                transition: top .2s ease 0s, bottom .2s ease 0s, transform .2s ease .2s, opacity .15s ease 0s;
+            }
+            &::before {
+                top: calc(50% - 1px);
+                transform: rotate(45deg);
+            }
+            &::after {
+                bottom: calc(50% - 1px);
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
