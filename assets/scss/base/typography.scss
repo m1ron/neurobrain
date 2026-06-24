@@ -7,33 +7,31 @@
 html {
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
     min-width: $min-width;
     overflow-x: hidden;
-    letter-spacing: .01em;
 }
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
     font-weight: 700;
-    letter-spacing: -.01em;
     color: $color-heading;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1, .h1 {
     font-size: 2rem;
-    line-height: 1.15;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: .0015em;
     @include media-breakpoint-up(md) {
         font-size: 2.5rem;
     }
-    @include media-breakpoint-up(lg) {
-        font-size: 3rem;
-    }
     @include media-breakpoint-up(xl) {
         font-size: 3.5rem;
+        line-height: 52px;
     }
 }
 
@@ -67,19 +65,6 @@ h4, .h4 {
         font-size: 1.25rem;
     }
 }
-
-.lead {
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    font-weight: 400;
-    color: $color-primary-gray;
-    @include media-breakpoint-up(md) {
-        font-size: 1.125rem;
-    }
-}
-
-.text-primary { color: $color-primary !important; }
-.text-dark    { color: $color-dark !important; }
 
 .link-arrow {
     display: inline-flex;

@@ -4,14 +4,14 @@
 // BUTTON
 // ============================================
 .btn {
-    --bs-btn-border-width: 1.5px;
-    --bs-btn-padding-x: 1.25rem;
-    --bs-btn-padding-y: .625rem;
-    --bs-btn-border-radius: 2rem;
+    --bs-btn-border-width: 1px;
+    --bs-btn-padding-x: 20px;
+    --bs-btn-padding-y: 10px;
+    --bs-btn-border-radius: 10px;
     --bs-btn-font-family: #{$font-default};
-    --bs-btn-font-size: .8125rem;
-    --bs-btn-line-height: 1.5;
-    --bs-btn-font-weight: 600;
+    --bs-btn-font-size: 13px;
+    --bs-btn-line-height: 18px;
+    --bs-btn-font-weight: 400;
     --bs-btn-box-shadow: none;
     display: inline-flex;
     align-items: center;
@@ -37,15 +37,15 @@
     // ------- Primary (teal filled) -------
     &-primary {
         --bs-btn-border-color: #{$color-primary};
-        --bs-btn-color: #ffffff;
+        --bs-btn-color: #{$color-dark-mid};
         --bs-btn-bg: #{$color-primary};
 
         --bs-btn-hover-border-color: #{darken($color-primary, 8%)};
-        --bs-btn-hover-color: #ffffff;
+        --bs-btn-hover-color: #{$color-dark-mid};
         --bs-btn-hover-bg: #{darken($color-primary, 8%)};
 
         --bs-btn-active-border-color: #{darken($color-primary, 12%)};
-        --bs-btn-active-color: #ffffff;
+        --bs-btn-active-color: #{$color-dark-mid};
         --bs-btn-active-bg: #{darken($color-primary, 12%)};
 
         --bs-btn-disabled-border-color: #{$color-primary};
@@ -57,15 +57,15 @@
     // ------- Outline Primary (teal border) -------
     &-outline-primary {
         --bs-btn-border-color: #{$color-primary};
-        --bs-btn-color: #{$color-primary};
+        --bs-btn-color: #{$color-dark-mid};
         --bs-btn-bg: transparent;
 
         --bs-btn-hover-border-color: #{$color-primary};
-        --bs-btn-hover-color: #ffffff;
+        --bs-btn-hover-color: #{$color-dark-mid};
         --bs-btn-hover-bg: #{$color-primary};
 
         --bs-btn-active-border-color: #{darken($color-primary, 8%)};
-        --bs-btn-active-color: #ffffff;
+        --bs-btn-active-color: #{$color-dark-mid};
         --bs-btn-active-bg: #{darken($color-primary, 8%)};
 
         outline: none !important;
